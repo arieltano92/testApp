@@ -1,21 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {connect} from "react-redux";
 import './App.css';
+import {itemsFetchData} from './actions/content/content'
+import PlayersList from "./components/PlayersList"
 
 class App extends Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+
+    componentWillMount(){
+        this.props.dispatch(itemsFetchData('https://football-players-b31f2.firebaseio.com/players.json?print=pretty'));
+    }
+
   render() {
-    return (
+      return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+          <PlayersList {...this.props}/>
       </div>
     );
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+    let PlayersList = null;
+    if (state.PlayersList !== null) {
+        PlayersList = state.PlayersList;
+    }
+    return {
+        PlayersList
+    };
+}
+
+export default connect(mapStateToProps)(App);

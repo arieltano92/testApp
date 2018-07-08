@@ -1,0 +1,6 @@
+import { combineReducers } from 'redux';
+import PlayerListReducer from './PlayerListReducer';
+
+export default  combineReducers({
+    PlayersList : PlayerListReducer
+})
