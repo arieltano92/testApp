@@ -3,21 +3,19 @@ import React, { Component } from 'react';
 
 class PlayersList extends Component {
 
-    constructor(props) {
-        super(props);
-    }
 
     render(){
-
-        return (<div className="players">{this.getPlayers()}</div>);
+        return (<div className="players">{this.getPlayers(this.props)}</div>);
     }
 
-    getPlayers(){
-        console.log(this.props.PlayersList.PlayersList);
-        return  this.props.PlayersList.PlayersList? this.props.PlayersList.PlayersList.content.map((player) => {
+    getPlayers(props){
+        const {content} =  props.PlayersList? props.PlayersList : null;
+        return  content? content.map((player,index) => {
                 return (<div className="player">
                     <div className="name">{player.name}</div>
                     <div className="position">{player.position}</div>
+                    <div className="nationality">{player.nationality}</div>
+                    <div className="date_birth">{player.age}</div>
                 </div>)
             }):'';
     };

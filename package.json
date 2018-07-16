@@ -3,15 +3,47 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^3.3.7",
+    "dev": "^0.1.3",
+    "fetch-mock": "^6.5.0",
+    "ramda": "^0.25.0",
     "react": "^16.4.1",
+    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
-    "redux-thunk": "^2.3.0"
+    "redux": "^4.0.0",
+    "redux-form": "^7.4.2",
+    "redux-mock-store": "^1.5.3",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest --coverage",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "transformIgnorePatterns": ["/node_modules/(?!vue-awesome)"],
+    "collectCoverageFrom": [
+      "**/src/**/*.js"
+    ]
+  },
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "babel-jest": "^23.4.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-15": "^1.0.6",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^23.4.1",
+    "jest-fetch-mock": "^1.6.5",
+    "moxios": "^0.4.0",
+    "react-test-renderer": "^16.4.1"
   }
 }

@@ -2,16 +2,15 @@ import React from 'react';
 import {render} from 'react-dom';
 import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
-import App from "./App"
+import AppContainer from "./containers/AppContainer"
 
 const store = configureStore();
 
 
 render(
-
     <div className="container">
         <Provider store={store}>
-            <App/>
+            <AppContainer/>
         </Provider>
     </div>,
     document.getElementById("root")

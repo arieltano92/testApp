@@ -38,7 +38,7 @@ export function itemsFetchData(url) {
     return (dispatch) => {
         fetch(url)
             .then((response) => {
-                dispatch(contentFetch(false));
+                dispatch(contentFetch(true));
                 if (!response.ok) {
                     throw Error(response.statusText);
                 }
@@ -47,7 +47,7 @@ export function itemsFetchData(url) {
             .then((response) => response.json())
             .then((items) => {
                 dispatch(contentFetched(items))}
-                )
+            )
             .catch((response) => dispatch(contentFetchFailed(response.statusText,response.status)));
     };
 }
